@@ -7,6 +7,13 @@ let conteudo = document.getElementById("conteudo")
 let nomeAutor = document.getElementById("nomeAutor")
 let views = document.getElementById("views")
 
+if(localStorage.getItem("usuarios") === null) {
+    localStorage.setItem("usuarios", JSON.stringify([]));
+}
+
+let objUsuarios = JSON.parse(localStorage.getItem("usuarios"));
+
+
 let noticias = JSON.parse(localStorage.getItem("noticias"))
 
 let parame = window.location.search.substring(1);
@@ -18,6 +25,8 @@ let noticia = noticias.find(noticia => noticia.id === id)
 noticia.views += 1;
 localStorage.setItem("noticias", JSON.stringify(noticias));
 
+
+
 titulo.textContent = noticia.titulo;
 subtitulo.textContent = noticia.subtitulo;
 data.textContent = noticia.data;
@@ -26,6 +35,16 @@ conteudo.textContent = noticia.conteudo;
 nomeAutor.textContent = noticia.autor;
 
 views.textContent = noticia.views;
+
+if(usuario != null) {
+    for(let i of objUsuarios) {
+        if(i.id === usuario.id) {
+            i.registro.push(noticia.titulo);
+            localStorage.setItem("usuarios", JSON.stringify(objUsuarios));
+            break;
+        }
+    }
+}
 
 document.getElementById('chat-form').addEventListener('submit', function (event) {
 
@@ -61,6 +80,8 @@ document.getElementById('chat-form').addEventListener('submit', function (event)
 function loadChat() {
     let chatMessages = document.getElementById('chat-messages');
 
+    chatMessages.innerHTML = '';
+
     for (let comentario of noticia.comentarios) {
         let newMessage = document.createElement('p');
         newMessage.classList.add('t7Tamanho');
@@ -68,8 +89,10 @@ function loadChat() {
 
         newMessage.appendChild(messageText);
         chatMessages.appendChild(newMessage);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
+
+    }        
+    
+    chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
 loadChat();
@@ -79,8 +102,7 @@ function abrirModal() {
     let modal = document.getElementById("modal");
 
     modal.classList.remove("d-none");
-    modal.classList.add("d-block");
-
+   
     document.getElementById("fechar").addEventListener("click", () => {
         modal.classList.remove("d-block");
         modal.classList.add("d-none");

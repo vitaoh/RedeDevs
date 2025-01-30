@@ -15,6 +15,6 @@ if(usuario !== null){
 
 logout.addEventListener('click', function() {
     localStorage.removeItem("usuario");
-    location.reload();
+    document.location.reload();
 });
 

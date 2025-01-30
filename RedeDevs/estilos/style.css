@@ -24,11 +24,11 @@
 }
 
 p{
-    font-size: 24px;
+    font-size: 18px;
 }
 
 .titulo-h5{
-    font-size: 40px;
+    font-size: 30px;
     font-weight: normal;
 }
 
@@ -67,63 +67,40 @@ p{
     font-size: 14px;
 }
 
-/*input:focus {
-    outline: none; 
-    box-shadow: 0 0 5px 2px #FF5733; 
-    border-color: #FF5733;
-}*/
+.modal-overlay {
+    position: fixed; /* Fixa no viewport */
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+    z-index: 999; /* Camada acima de outros elementos */
+    top: 0px;
+    pointer-events: all;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
 
 .modalNoticia {
+    justify-content: center;
+    align-items: center;
     background-color: #fff;
-    padding: 20px;
+    height: auto;
+    padding: 4px;
     width: 90%;
-    max-width: 400px;
+    max-width: 600px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    pointer-events: auto;
 }
 
-.modal-cabeca {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
+#historicoContainer {
+    flex-grow: 1;
+    overflow-y: auto; /* Adiciona scroll apenas no conteúdo */
+    max-height: 50vh; /* Limita a altura do conteúdo */
+    padding: 8px;
 }
 
-.modal-corpo {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 20px;
+.vh-img {
+    width: 200px; 
+    height: 200px; 
+    object-fit: cover;
 }
-
-.modal-botoes {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.modal-footer button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s;
-}
-
-.modal-footer button:hover {
-    background-color: #555;
-}
-
-.modal-center {
-    position: fixed;
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
-    z-index: 1000; 
-    background-color: white; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
-    padding: 20px;
-    border-radius: 8px;
-  }
-  

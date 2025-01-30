@@ -7,20 +7,36 @@ if(localStorage.getItem("usuarios") === null) {
 
 let objUsuarios = JSON.parse(localStorage.getItem("usuarios"));
 
-let objUsuario = {
-    id: 1,
-    nome: "Cauan Mendes",
-    cpf: "333",
-    telefone: "555",
-    email: "admin@admin.com",
-    senha: "123",
-    admin: true,
-    log: []
+let criado = false;
+
+for(let i of objUsuarios) {
+    if(i.id === 1){ 
+        criado = true;
+        break;
+    }
 }
 
-objUsuarios.push(objUsuario);
+if(!criado) {
 
-localStorage.setItem("usuarios", JSON.stringify(objUsuarios));
+    let objUsuario = {
+        id: 1,
+        nome: "Cauan Mendes",
+        cpf: "333.445.678-42",
+        telefone: "(16) 99555-4367",
+        email: "cauanmendes@admin.com",
+        senha: "123",
+        admin: true,
+        registro: [],
+        fotoperfil: "https://voxnews.com.br/wp-content/uploads/2017/04/unnamed.png"
+    }
+    
+    objUsuarios.push(objUsuario);
+    
+    localStorage.setItem("usuarios", JSON.stringify(objUsuarios));
+
+}
+
+
 
 
 formLogin.addEventListener('submit', function (e) {
@@ -31,13 +47,9 @@ formLogin.addEventListener('submit', function (e) {
 
     let objUsuarios = JSON.parse(localStorage.getItem("usuarios"));
 
-    console.log(objUsuarios);
-
     let logado = false;
 
     for(let usuario of objUsuarios) {
-
-        console.log(usuario);
         
         if(usuario.email === email && usuario.senha === senha) {
             logado = true;

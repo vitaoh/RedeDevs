@@ -175,9 +175,9 @@ document.getElementById("form-cadastro").addEventListener("submit", (e) => {
 
     if (nome.length < 3) {
         alert("Nome muito curto");
-    } else if (telefone.length < 11) {
+    } else if (telefone.length < 15) {
         alert('Celular incompleto');
-    } else if (cpf.length < 11) {
+    } else if (cpf.length < 14) {
         alert('CPF incompleto');
     } else{
 
@@ -191,7 +191,8 @@ document.getElementById("form-cadastro").addEventListener("submit", (e) => {
             email: email,
             senha: senha,
             admin: false,
-            log: []
+            registro: [],
+            fotoperfil: "https://voxnews.com.br/wp-content/uploads/2017/04/unnamed.png"
         }
 
         objUsuarios.push(objUsuario);

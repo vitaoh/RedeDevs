@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../estilos/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <style>
@@ -76,11 +77,11 @@
         <div class="card">
           <div class="card-body">
             <div class="text-center">
-              <img src="https://voxnews.com.br/wp-content/uploads/2017/04/unnamed.png" alt="Foto do Perfil" class="profile-picture mb-3">
-              <h3 id="profileName">João Silva</h4>
+              <img src="https://voxnews.com.br/wp-content/uploads/2017/04/unnamed.png" alt="Foto do Perfil" id="fotoperfil" class="profile-picture mb-3">
+              <h3 id="profileName"></h4>
                 <br>
-              <p id="profileEmail">joao.silva@example.com</p>
-              <p id="profileTelefone">(12) 34567-8910</p>
+              <p id="profileEmail"></p>
+              <p id="profileTelefone"></p>
               <br>
               <button class="btn btn-primary" id="editButton">Editar</button>
             </div>
@@ -95,6 +96,7 @@
                 <div class="mb-3 col-12 col-md-6">
                   <label for="email" class="form-label">E-mail</label>
                   <input type="text" class="form-control" id="email" value="joao.silva@example.com">
+                  <span id="erroEmail" class="badge badge-warning" style="color: red;"></span>
                 </div>
               </div>
               <div class="row">
@@ -106,6 +108,7 @@
                 <div class="mb-3 col-12 col-md-6">
                   <label for="senha" class="form-label">Senha</label>
                   <input type="password" id="senha" name="senha" class="form-control" value="********">
+                  <span id="erroSenha" class="badge badge-warning" style="color: red;"></span>
                 </div>
               </div>
     
@@ -116,12 +119,13 @@
     
               <div class="text-end">
                 <button type="button" class="btn btn-secondary" id="cancelButton">Cancelar</button>
-                <button type="submit" class="btn btn-success">Salvar</button>
+                <button type="submit" class="btn btn-primary">Salvar</button>
               </div>
             </form>
           </div>
         </div>
       </div>
+      <script src="../scripts/navbar.js"></script>
     <script src="../scripts/perfil.js"></script>
 </body>
 
